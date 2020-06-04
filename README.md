@@ -1,2 +1,3 @@
 # learn_django_project_blog
-Learning Django by creating blog website
+Learning Django by creating blog website.
+In this project will be...

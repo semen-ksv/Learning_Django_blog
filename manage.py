@@ -24,4 +24,6 @@ if __name__ == '__main__':
 """
 py manage.py runserver
 py manage.py startapp news
+py manage.py makemigrations
+python manage.py migrate
 """

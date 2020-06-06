@@ -12,6 +12,9 @@
                 <div>
                     <p><h2>{{ article.title }}</h2></p>
                     <p>{{ article.created|date:"d-m-Y H:i" }}</p>
+                    {% if article.category %}
+                        <p>{{ article.category }}</p>
+                    {% endif %}
                 </div>
                 <div>
                     {{ article.content }}

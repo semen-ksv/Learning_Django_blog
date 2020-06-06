@@ -15,6 +15,7 @@ class News(models.Model):
     """
 
     title = models.CharField(max_length=200, unique=True)
+    # для названия полей на русском добавить verbose_name = "Новость"
     content = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -22,5 +23,9 @@ class News(models.Model):
     published = models.BooleanField(default=True)
 
     def __str__(self):
-        return f'{self.title} created {self.created.date()}'
+        return f'{self.title}'
 
+    class Meta:
+        verbose_name = "Новость"
+        verbose_name_plural = 'News'
+        ordering = ['-created', 'title']

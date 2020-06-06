@@ -1,7 +1,7 @@
 <div class="card mb-3">
     <div class="card-header">
         {% if article.category %}
-            Category: <a href="{% url 'category' article.category.pk %}">{{ article.category }}</a>
+            Category: <a href="{% url 'category' article.category.pk %}" class="list-group-item-action">{{ article.category }}</a>
         {% endif %}
     </div>
     <div class="card-body">

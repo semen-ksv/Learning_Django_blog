@@ -1,0 +1,13 @@
+
+{% load news_tags %}
+{# tag позволяет вывести напрямую get_all_categories со всеми категориями без привязки к основной страничке#}
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active" style="color: #212529; background-color: #e3f2fd; border-color: #e3f2fd; font-weight: bold; text-transform: uppercase">
+        Categories
+    </a>
+    {% get_all_categories as categories %}
+    {% for category in categories %}
+        <a href="{% url 'category' category.pk %} "
+           class="list-group-item list-group-item-action">{{ category.category_title }}</a>
+    {% endfor %}
+</div>

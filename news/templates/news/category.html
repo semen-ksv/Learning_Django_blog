@@ -9,15 +9,7 @@
 {% block sidebar %}
 
     <div class="col-md-3">
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active">
-                Categories
-            </a>
-            {% for category in categories %}
-                <a href="{% url 'category' category.pk %}"
-                   class="list-group-item list-group-item-action">{{ category.category_title }}</a>
-            {% endfor %}
-        </div>
+        {% include 'news/include/categories_sidebar.html' %}
     </div>
 
 {% endblock %}

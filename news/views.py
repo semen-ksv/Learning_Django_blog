@@ -24,5 +24,5 @@ def get_category(request, category_id):
     category = Category.objects.get(pk=category_id)
     return render(request, 'news/category.html', {'news': news,
                                                   'category': category,
-                                                  'categories': categories
+                                                  'categories': categories,
                                                   })

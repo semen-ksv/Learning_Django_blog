@@ -7,4 +7,4 @@ from news.models import News
 def index(request):
     news = News.objects.all()
     # news = News.objects.order_by('-created')
-    return render(request, 'news/index_news.html', {'news': news})
+    return render(request, 'news/index_news.html', {'news': news, 'title': 'News'})

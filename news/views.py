@@ -12,7 +12,7 @@ def index(request):
     categories = Category.objects.all()
     return render(request, 'news/index_news.html', {'news': news,
                                                     'title': 'All News',
-                                                    'article_imp': default_img,
+                                                    'article_img': default_img,
                                                     'categories': categories
                                                     })
 

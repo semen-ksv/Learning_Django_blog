@@ -1,7 +1,7 @@
 <div class="card mb-3">
     <div class="card-header">
         {% if article.category %}
-            Category: <a href="{% url 'category' article.category.pk %}" class="list-group-item-action">{{ article.category }}</a>
+            Category: <a href="{{ article.category.get_absolute_url }}" class="list-group-item-action">{{ article.category }}</a>
         {% endif %}
     </div>
     <div class="card-body">
@@ -12,13 +12,15 @@
                 <img src="{{ article_img }}" alt="" width="350" class="mr-3">
             {% endif %}
             <div class="media-body">
-                <h4 class="card-title">{{ article.title }}</h4>
-                <p class="card-text">{{ article.content }}</p>
+                <a href="" style="color:#05282b; ">
+                    <h4 class="card-title">{{ article.title }}</h4>
+                </a>
+                <p class="card-text">{{ article.content|safe|truncatewords:80 }}</p>
                 <a href="#">read more</a>
             </div>
         </div>
     </div>
-    <div class="card-footer text-muted">
+    <div class="card-footer text-muted" style="text-align: right">
         {{ article.created|date:"d-m-Y H:i" }}
     </div>
 </div>

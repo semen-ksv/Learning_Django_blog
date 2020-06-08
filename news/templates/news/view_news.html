@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    {{ article.title }}
+
+{% endblock %}
+
+{% block sidebar %}
+
+    <div class="col-md-3">
+        {% include 'news/include/categories_sidebar.html' %}
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-9">
+        <div class="container mt-3">
+
+            <div class="row">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h4 class="card-title">{{ article.title }}</h4>
+
+
+                        <div  style="text-align: right">
+                            {{ article.created|date:"d-m-Y H:i" }}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="media" style=" display: block;">
+
+                            {% if article.photo %}
+                                <img src="{{ article.photo.url }}" alt="article photo" width="350"
+                                     style="float: left; margin: 1em 1em 0 0;">
+                            {% else %}
+                                <img src="{{ article_img }}" alt="" width="350" class="mr-3">
+                            {% endif %}
+                            <div class="media-body">
+
+                                <p class="card-text" style="text-align: justify">{{ article.content }}</p>
+
+                            </div>
+                            <hr>
+                            {% if article.category %}
+                                Category: <a href="{{ article.category.get_absolute_url }}"
+                                            class="list-group-item-action">{{ article.category }} </a>
+                            {% endif %}
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

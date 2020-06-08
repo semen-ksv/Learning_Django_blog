@@ -27,6 +27,10 @@ class News(models.Model):
     def __str__(self):
         return f'{self.title}'
 
+    def get_absolute_url(self):
+        # создаем ссылки для категорий для перехода и указания в html
+        return reverse('view_news', kwargs={'news_id': self.pk})
+
     class Meta:
         verbose_name = "Новость"
         verbose_name_plural = 'News'

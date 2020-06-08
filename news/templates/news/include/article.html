@@ -12,11 +12,11 @@
                 <img src="{{ article_img }}" alt="" width="350" class="mr-3">
             {% endif %}
             <div class="media-body">
-                <a href="" style="color:#05282b; ">
+                <a href="{{ article.get_absolute_url }}" style="color:#05282b; ">
                     <h4 class="card-title">{{ article.title }}</h4>
                 </a>
-                <p class="card-text">{{ article.content|safe|truncatewords:80 }}</p>
-                <a href="#">read more</a>
+                <p class="card-text" style="text-align: justify">{{ article.content|safe|truncatewords:70 }}</p>
+                <a href="{{ article.get_absolute_url }}">read more</a>
             </div>
         </div>
     </div>

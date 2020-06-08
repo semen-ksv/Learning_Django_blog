@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from news.models import News, Category
+from .forms import NewsForm
 
 
 def index(request):
@@ -27,3 +28,14 @@ def view_news(request, news_id):
     # news_item = News.objects.get(pk=news_id)
     news_item = get_object_or_404(News, pk=news_id)
     return render(request, 'news/view_news.html', {'article': news_item})
+
+def add_news(request):
+    # добавили форму связанную с данными и не связанную
+    if request.method == "POST":
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            article = News.objects.create(**form.cleaned_data)
+            return redirect(article)
+    else:
+        form = NewsForm()
+    return render(request, 'news/add_news.html', {'form': form})

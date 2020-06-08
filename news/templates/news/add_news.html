@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Add news
+
+{% endblock %}
+
+{% block sidebar %}
+
+    <div class="col-md-3">
+        {% include 'news/include/categories_sidebar.html' %}
+    </div>
+
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-9">
+        <div class="container mt-3">
+            <h2>Add news</h2>
+
+            <form action="{% url 'add_news' %}" method="post">
+
+                {% csrf_token %}
+                {{ form.as_p }}
+
+
+{#                {% for field in form %}#}
+{#                <div class="form-group">#}
+{#                    {{ field.label_tag }}#}
+{#                    {{ field }}#}
+{#                    <div class="invalid-feedback">#}
+{#                        {{ field.errors }}#}
+{#                    </div>#}
+{#                </div>#}
+
+
+
+{#                {{ form.non_field_errors }}#}
+{#                    <div class="form-group">#}
+{#                        <label for="{{ form.title.id_for_label }}">Title of article: </label>#}
+{#                        {{ form.title }}#}
+{#                        <div class="invalid-feedback">#}
+{#                            {{ form.title.errors }}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="{{ form.content.id_for_label }}">Content: </label>#}
+{#                        {{ form.content }}#}
+{#                        <div class="invalid-feedback">#}
+{#                            {{ form.content.errors }}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="{{ form.photo.id_for_label }}">Add photo: </label>#}
+{#                        {{ form.photo}}#}
+{#                        <div class="invalid-feedback">#}
+{#                            {{ form.photo.errors }}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="{{ form.published.id_for_label }}">Are publish news ? </label>#}
+{#                        {{ form.published }}#}
+{#                        <div class="invalid-feedback">#}
+{#                            {{ form.published.errors }}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="{{ form.category.id_for_label }}">Category: </label>#}
+{#                        {{ form.category }}#}
+{#                        <div class="invalid-feedback">#}
+{#                            {{ form.category.errors }}#}
+{#                        </div>#}
+{#                    </div>#}
+
+                <button type="submit" class="btn btn-primary btn-block"
+                        style="background-color: #e1f0fc; border: none; color: black"> Add news</button>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}
+

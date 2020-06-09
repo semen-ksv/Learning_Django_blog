@@ -1,7 +1,7 @@
 # learn_django_project_blog
 Learning Django by creating blog website.
 
-In this project implement...
+In this project implemented...
 
 1. Created admin user and admin panel
 2. Created model News with articles and Category of news
@@ -10,3 +10,5 @@ In this project implement...
 5. All html pages use block style
 6. Add sidebar with categories
 7. We can sort news by categories and show them
+8. You cat create new article and save it using django forms
+9. Each news open in new window in full

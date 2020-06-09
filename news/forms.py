@@ -29,6 +29,6 @@ class NewsForm(forms.ModelForm):
         # кастомная валидация формы для названия
 
         title = self.cleaned_data['title']
-        if re.match('\d', title):
+        if re.match(r'\d', title):
             raise ValidationError('Название не должно начинаться с цифры!')
         return title

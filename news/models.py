@@ -20,7 +20,7 @@ class News(models.Model):
     content = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    photo = models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/')
+    photo = models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/', default='photos/Article.jpg')
     published = models.BooleanField(default=True)
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, blank=True)
 

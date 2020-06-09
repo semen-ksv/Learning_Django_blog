@@ -36,8 +36,10 @@
                                 <img src="{{ article.photo.url }}" alt="article photo" width="350"
                                      style="float: left; margin: 1em 1em 0 0;">
                             {% else %}
-                                <img src="{{ article_img }}" alt="" width="350" class="mr-3">
+                                <img src="{{ article_img }}" alt="" width="350" class="mr-3"
+                                     >
                             {% endif %}
+
                             <div class="media-body">
 
                                 <p class="card-text" style="text-align: justify">{{ article.content }}</p>

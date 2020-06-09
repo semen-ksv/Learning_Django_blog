@@ -5,7 +5,7 @@ from news.models import News, Category
 from .forms import NewsForm
 
 
-class HemeNews(ListView):
+class HomeNews(ListView):
     """вивод всех новостей, используеться вместо функции index"""
     model = News
     template_name = 'news/index_news.html'
@@ -17,7 +17,7 @@ class HemeNews(ListView):
     #                  }
     def get_context_data(self, *, object_list=None, **kwargs):
         # лучше использовать вместо extra_context
-        context = super(HemeNews, self).get_context_data(**kwargs)
+        context = super(HomeNews, self).get_context_data(**kwargs)
         default_img = 'media/photos/Article.jpg'
         context['title'] = 'All News'
         context['article_img'] = default_img
@@ -40,14 +40,32 @@ class HemeNews(ListView):
 #                                                     })
 
 
-def get_category(request, category_id):
-    # подбор новостей по категориям с бокового меню
-    news = News.objects.filter(category_id=category_id)
-    # categories = Category.objects.all()
-    category = Category.objects.get(pk=category_id)
-    return render(request, 'news/category.html', {'news': news,
-                                                  'category': category,
-                                                  })
+class NewsByCategory(ListView):
+    """подбор новостей по категориям с бокового меню, вместо функции get_category"""
+    model = News
+    template_name = 'news/category.html'
+    context_object_name = 'news'
+    allow_empty = False  # запрещаем показ пустых списков категории, которых нету
+
+    def get_queryset(self):
+        # фильтруем вывод новостей на страницу, по категориям
+        return News.objects.filter(category_id=self.kwargs['category_id'], published=True)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(NewsByCategory, self).get_context_data(**kwargs)
+        context['category'] = Category.objects.get(pk=self.kwargs['category_id'])
+        default_img = '/media/photos/Article.jpg'
+        context['article_img'] = default_img
+        return context
+
+# def get_category(request, category_id):
+#     # подбор новостей по категориям с бокового меню
+#     news = News.objects.filter(category_id=category_id)
+#     # categories = Category.objects.all()
+#     category = Category.objects.get(pk=category_id)
+#     return render(request, 'news/category.html', {'news': news,
+#                                                   'category': category,
+#                                                   })
 
 
 def view_news(request, news_id):

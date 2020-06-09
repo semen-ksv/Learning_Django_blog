@@ -1,5 +1,7 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from .models import Category, News
+import re
 
 # class NewsForm(forms.Form):
 #     # форма не связаная с моделями, код дублируеться это минус
@@ -13,6 +15,7 @@ from .models import Category, News
 
 class NewsForm(forms.ModelForm):
     # форма связаная с моделями
+
     class Meta:
         model = News
         # fields = '__all__'
@@ -21,3 +24,11 @@ class NewsForm(forms.ModelForm):
                    'content': forms.Textarea(attrs={"class": "form-control", "rows": 7}),
                    'category': forms.Select(attrs={"class": "form-control"}),
                    }
+
+    def clean_title(self):
+        # кастомная валидация формы для названия
+
+        title = self.cleaned_data['title']
+        if re.match('\d', title):
+            raise ValidationError('Название не должно начинаться с цифры!')
+        return title

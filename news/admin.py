@@ -16,7 +16,7 @@ class NewsAdmin(admin.ModelAdmin):
         if obj.photo:
             return mark_safe(f'<img src="{obj.photo.url}" width="200">')
         else:
-            return 'Photo does\'t exist'
+            return "Photo doesn't exist"
 
 
 admin.site.register(News, NewsAdmin)

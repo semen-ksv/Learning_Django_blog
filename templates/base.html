@@ -32,9 +32,12 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            {% if  request.user.is_unthenticated %}
+                        <li class="nav-item">
                 <a class="nav-link" href="{% url 'add_news' %}">Add news</a>
             </li>
+            {% endif %}
+
             <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
             </li>

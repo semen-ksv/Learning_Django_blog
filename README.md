@@ -12,4 +12,4 @@ In this project implemented...
 7. We can sort news by categories and show them
 8. You cat create new article and save it using django forms
 9. Each news open in new window in full
-10. 
+10. Change some fields and color style in admin panel

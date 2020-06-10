@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from news.models import News, Category
 from .forms import NewsForm
 
@@ -87,12 +87,11 @@ class ViewNews(DetailView):
 #     return render(request, 'news/view_news.html', {'article': news_item})
 
 
-
-class CreateNews(CreateView):
+class CreateNews(LoginRequiredMixin, CreateView):
     """вывод форми для создание новости, вместо функции add_news"""
     form_class = NewsForm
     template_name = 'news/add_news.html'
-
+    login_url = '/admin/'
 
 # def add_news(request):
 #     # добавили форму связанную с данными и не связанную

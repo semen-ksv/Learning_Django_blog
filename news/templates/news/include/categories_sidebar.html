@@ -8,6 +8,6 @@
     {% get_all_categories as categories %}
     {% for category in categories %}
         <a href="{{ category.get_absolute_url }} "
-           class="list-group-item list-group-item-action">{{ category.category_title }}</a>
+           class="list-group-item list-group-item-action">{{ category.category_title }}  </a>
     {% endfor %}
 </div>

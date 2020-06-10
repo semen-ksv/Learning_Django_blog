@@ -23,6 +23,7 @@ class News(models.Model):
     photo = models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/', default='photos/Article.jpg')
     published = models.BooleanField(default=True)
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, blank=True)
+    views_count = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.title}'

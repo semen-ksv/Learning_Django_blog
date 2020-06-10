@@ -20,7 +20,14 @@
             </div>
         </div>
     </div>
-    <div class="card-footer text-muted" style="text-align: right">
-        {{ article.created|date:"d-m-Y H:i" }}
+
+    <div class="card-footer text-muted" >
+        <div style="text-align: left; display:inline-block;" >
+          Views: {{ article.views_count }}
+        </div>
+        <div style="text-align: right; display:inline-block;float:right">
+            {{ article.created|date:"d-m-Y H:i" }}
+        </div>
     </div>
+
 </div>

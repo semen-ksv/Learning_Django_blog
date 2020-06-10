@@ -5,9 +5,10 @@
     <a href="#" class="list-group-item list-group-item-action active" style="color: #212529; background-color: #e3f2fd; border-color: #e3f2fd; font-weight: bold; text-transform: uppercase">
         Categories
     </a>
-    {% get_all_categories as categories %}
+    {% show_categories as categories %}
     {% for category in categories %}
-        <a href="{{ category.get_absolute_url }} "
-           class="list-group-item list-group-item-action">{{ category.category_title }}  </a>
+        <a href="{{ category.get_absolute_url }}" class="list-group-item list-group-item-action">{{ category.category_title }} --
+            <span class="badge badge-primary badge-pill" style="text-align: right">{{ category.cnt }}</span>
+        </a>
     {% endfor %}
 </div>

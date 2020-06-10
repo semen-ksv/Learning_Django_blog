@@ -25,7 +25,8 @@ class HomeNews(ListView):
 
     def get_queryset(self):
         # фильтруем вывод новостей на страницу, по галочке публикации
-        return News.objects.filter(published=True)
+        # используем select_related для вывода всех категорий по одному запросу в базу даных
+        return News.objects.filter(published=True).select_related('category')
 
 
 # def index(request):
@@ -49,7 +50,7 @@ class NewsByCategory(ListView):
 
     def get_queryset(self):
         # фильтруем вывод новостей на страницу, по категориям
-        return News.objects.filter(category_id=self.kwargs['category_id'], published=True)
+        return News.objects.filter(category_id=self.kwargs['category_id'], published=True).select_related('category')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(NewsByCategory, self).get_context_data(**kwargs)

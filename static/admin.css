@@ -1,0 +1,17 @@
+#header{
+    background-color: #4e8617;
+    color: #6DDCBD;
+}
+.site-name{
+    color: #003366;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: #6aac3e;
+    color: #003366;
+}
+
+div.breadcrumbs {
+    background: #9adb72;
+    color: #1c3c4c;
+}

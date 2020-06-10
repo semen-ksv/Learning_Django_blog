@@ -8,7 +8,8 @@ In this project implemented...
 3. Add articles on maine page
 4. Use Bootstrap for styling my page
 5. All html pages use block style
-6. Add sidebar with categories
+6. Add sidebar with categories and count news in each categories
 7. We can sort news by categories and show them
 8. You cat create new article and save it using django forms
 9. Each news open in new window in full
+10. 

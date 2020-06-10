@@ -8,7 +8,7 @@
     {% show_categories as categories %}
     {% for category in categories %}
         <a href="{{ category.get_absolute_url }}" class="list-group-item list-group-item-action">{{ category.category_title }} --
-            <span class="badge badge-primary badge-pill" style="text-align: right">{{ category.cnt }}</span>
+            <span class="badge badge-dark"  style="background-color: #e4e6e9">{{ category.cnt }}</span>
         </a>
     {% endfor %}
 </div>

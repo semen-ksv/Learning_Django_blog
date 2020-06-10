@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}"/>
 
     <title>
         {% block title %}
@@ -28,25 +28,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <div>
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            {% if  request.user.is_unthenticated %}
-                        <li class="nav-item">
-                <a class="nav-link" href="{% url 'add_news' %}">Add news</a>
-            </li>
-            {% endif %}
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+{#                {% if  user.is_unthenticated %}#}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_news' %}">Add news</a>
+                    </li>
+{#                {% endif %}#}
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-        </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
         </div>
         <div style="margin-left: auto;">
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="border-color: #262424">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="border-color: #262424">
+                    Search
+                </button>
             </form>
         </div>
     </div>
@@ -56,7 +58,7 @@
 <div class="container mt-3">
     <div class="row">
         {% block sidebar %}
-        
+
         {% endblock %}
 
         {% block content %}
@@ -64,6 +66,66 @@
         {% endblock %}
     </div>
 </div>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://github.com/semen-ksv"> ksvsem </a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+{#<!-- Footer -->#}
+{#<footer class="page-footer font-small special-color-dark pt-4">#}
+{##}
+{#  <!-- Footer Elements -->#}
+{#  <div class="container">#}
+{##}
+{#    <!-- Social buttons -->#}
+{#    <ul class="list-unstyled list-inline text-center">#}
+{#      <li class="list-inline-item">#}
+{#        <a class="btn-floating btn-fb mx-1">#}
+{#          <i class="fab fa-facebook-f"> </i>#}
+{#        </a>#}
+{#      </li>#}
+{#      <li class="list-inline-item">#}
+{#        <a class="btn-floating btn-tw mx-1">#}
+{#          <i class="fab fa-twitter"> </i>#}
+{#        </a>#}
+{#      </li>#}
+{#      <li class="list-inline-item">#}
+{#        <a class="btn-floating btn-gplus mx-1">#}
+{#          <i class="fab fa-google-plus-g"> </i>#}
+{#        </a>#}
+{#      </li>#}
+{#      <li class="list-inline-item">#}
+{#        <a class="btn-floating btn-li mx-1">#}
+{#          <i class="fab fa-linkedin-in"> </i>#}
+{#        </a>#}
+{#      </li>#}
+{#      <li class="list-inline-item">#}
+{#        <a class="btn-floating btn-dribbble mx-1">#}
+{#          <i class="fab fa-dribbble"> </i>#}
+{#        </a>#}
+{#      </li>#}
+{#    </ul>#}
+{#    <!-- Social buttons -->#}
+{##}
+{#  </div>#}
+{#  <!-- Footer Elements -->#}
+{##}
+{#  <!-- Copyright -->#}
+{#  <div class="footer-copyright text-center py-3">© 2020 Copyright:#}
+{#    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>#}
+{#  </div>#}
+{#  <!-- Copyright -->#}
+{##}
+{#</footer>#}
+{#<!-- Footer -->#}
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

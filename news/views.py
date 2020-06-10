@@ -10,6 +10,7 @@ class HomeNews(ListView):
     model = News
     template_name = 'news/index_news.html'
     context_object_name = 'news'
+    paginate_by = 3
 
     # default_img = 'media/photos/Article.jpg'
     # extra_context = {'title': 'All News',
@@ -47,6 +48,7 @@ class NewsByCategory(ListView):
     template_name = 'news/category.html'
     context_object_name = 'news'
     allow_empty = False  # запрещаем показ пустых списков категории, которых нету
+    paginate_by = 5
 
     def get_queryset(self):
         # фильтруем вывод новостей на страницу, по категориям

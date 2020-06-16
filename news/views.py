@@ -3,8 +3,14 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login, logout
 from django.contrib import messages
+
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from news.models import News, Category
 from .forms import NewsForm, UserRegForm, UserLoginForm
+from .serializers import NewsListSerializer, NewsDetailSerializer
+
 
 def register(request):
     # регистрация нового пользователя
@@ -138,3 +144,20 @@ class CreateNews(LoginRequiredMixin, CreateView):
 #     else:
 #         form = NewsForm()
 #     return render(request, 'news/add_news.html', {'form': form})
+
+
+class NewsListView(APIView):
+    """Output list of news"""
+
+    def get(self, request):
+        news = News.objects.all()
+        serializer = NewsListSerializer(news, many=True)
+        return Response(serializer.data)
+
+class NewsSingleView(APIView):
+    """Output detail's of single news"""
+
+    def get(self, request, pk):
+        new = News.objects.get(id=pk, published=True)
+        serializer = NewsDetailSerializer(new)
+        return Response(serializer.data)
